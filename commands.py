@@ -1,11 +1,8 @@
+from log import Log
 import subprocess as sbp
 
-class Commands:
-    def __init__(self):
-        self.output = ''
-        self.status = ''
-        self.outputs = []
-
-    def exec(self, cmd):
-        self.status, self.output = sbp.getstatusoutput(cmd)
-        self.outputs.append({'output': self.output, 'status': self.status, 'cmd': cmd})
+def exec(cmd, log):
+    status, output = sbp.getstatusoutput(cmd)
+    info = {'output': output, 'status': status, 'cmd': cmd}
+    log.appendOutputs(info)
+    return info
