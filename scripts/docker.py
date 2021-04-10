@@ -1,14 +1,13 @@
-from commands import exec
+from utils.commands import exec
 
 def upDocker(log):
-    info = exec('docker info', log)
+    info = exec('ls -la', log)
     if info['status'] != 0:
-        start = exec('systemctl start dockera', log)
+        start = exec('systemctl start docker', log)
         if start['status'] != 0:
             pass
             # Notificar
             # exit
-
 
 def upSamba(log):
     retr = exec('ping -c1 192.168.1.4', log)

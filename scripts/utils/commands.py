@@ -1,4 +1,3 @@
-from log import Log
 import subprocess as sbp
 
 def exec(cmd, log):

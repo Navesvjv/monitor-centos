@@ -3,8 +3,12 @@ version: "3.9"
 services:
     app:
         build: .
+        container_name: dockernode
         command: npm start
         ports:
             - "3000:3000"
         volumes:
             - .:/usr/app
+
+    python:
+        from: python:alpine
